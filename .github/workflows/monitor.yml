@@ -1,0 +1,50 @@
+# Diese Datei gehoert in deinem Repo unter:  .github/workflows/monitor.yml
+#
+# Sie startet den Monitor automatisch alle 30 Minuten (gratis ueber GitHub Actions)
+# und speichert den Stand (seen.json) zurueck ins Repo, damit du keine
+# doppelten Meldungen bekommst.
+
+name: One Piece Monitor
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # alle 30 Minuten (kleinster sinnvoller Wert: 15)
+  workflow_dispatch: {}        # erlaubt manuelles Starten per Knopf
+
+permissions:
+  contents: write              # noetig, um seen.json zurueckzuschreiben
+
+concurrency:
+  group: op-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Monitor ausfuehren
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          TELEGRAM_BOT_TOKEN:  ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python op_monitor.py
+
+      - name: Stand (seen.json) sichern
+        run: |
+          if [ -n "$(git status --porcelain seen.json)" ]; then
+            git config user.name  "op-monitor-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add seen.json
+            git commit -m "update seen.json [skip ci]"
+            git push
+          else
+            echo "Keine Aenderung an seen.json."
+          fi
