@@ -10,10 +10,12 @@ und neue News-/Release-Posts und schickt dir eine Benachrichtigung
 Eigenschaften:
 - Laeuft EINMAL pro Aufruf  -> gedacht fuer GitHub Actions oder Cron (alle 15-30 Min).
 - Merkt sich bekannte Produkte/Posts in seen.json (kein Spam bei jedem Lauf).
-- Card Collector (Alzey) hat Prioritaet: wird zuerst geprueft und im Alarm mit  markiert.
+- Card Collector (Alzey) hat Prioritaet: wird zuerst geprueft und im Alarm markiert.
 - Keine externen Pakete noetig  -> nur Python-Standardbibliothek.
 - Probiert automatisch den Shopify-Feed (/products.json). Shops ohne Shopify
   werden einmal als "kein Feed" gemeldet -> die dann per changedetection.io beobachten.
+- Filtert Merchandise (Sleeves, Playmats, Figuren ...) heraus und meldet nur
+  echte Kartenprodukte (Displays, Booster, Boxen, Starter, EB, IB, PEB, ...).
 
 Konfiguration ueber Umgebungsvariablen (mindestens EIN Kanal):
   DISCORD_WEBHOOK_URL   Discord Webhook-URL
@@ -35,8 +37,8 @@ import xml.etree.ElementTree as ET
 SHOPS = [
     {"name": "Card Collector (Alzey)", "url": "https://card-collector.net", "priority": True},
 
-    # --- Deutschland ---
-    {"name": "Card-Corner",         "url": "https://www.card-corner.de",       "priority": False},
+    # --- Deutschland (Original) ---
+    {"name": "Card-Corner",         "url": "https://www.card-corner.de",       "priority": False},  # kein Feed
     {"name": "Feenturm",            "url": "https://feenturm.de",              "priority": False},
     {"name": "GeeksHeaven",         "url": "https://geeksheaven.de",           "priority": False},
     {"name": "Crispy Cards",        "url": "https://crispycards.de",           "priority": False},
@@ -44,23 +46,68 @@ SHOPS = [
     {"name": "Games Island",        "url": "https://games-island.eu",          "priority": False},
     {"name": "Gate to the Games",   "url": "https://www.gate-to-the-games.de",  "priority": False},
     {"name": "Sapphire-Cards",      "url": "https://sapphire-cards.de",        "priority": False},
-    {"name": "DunPop",              "url": "https://dunpop.de",                "priority": False},
-    {"name": "Cardlantis (nur Info)","url": "https://cardlantis.de",           "priority": False},
+    {"name": "DunPop",              "url": "https://dunpop.de",                "priority": False},  # kein Feed
+    {"name": "Cardlantis",          "url": "https://cardlantis.de",            "priority": False},
 
-    # --- Schweiz (Versand nach Basel, kein Zoll) ---
+    # --- Deutschland (NEU – Shopify-Feed bestaetigt am 23.09.2026) ---
+    {"name": "Yonko TCG",           "url": "https://yonko-tcg.de",             "priority": False},
+    {"name": "DAESU Cards",         "url": "https://daesu-cards.de",           "priority": False},
+    {"name": "FantasiaCards",       "url": "https://fantasiacards.de",         "priority": False},
+    {"name": "CardBuddys",          "url": "https://cardbuddys.de",            "priority": False},
+    {"name": "Deichcards",          "url": "https://deichcards.de",            "priority": False},
+    {"name": "TCGViert",            "url": "https://tcgviert.com",             "priority": False},
+    {"name": "Card Cosmos",         "url": "https://cardcosmos.de",            "priority": False},
+    {"name": "New Era TCG",         "url": "https://newera-tcg.shop",          "priority": False},
+    {"name": "AdventureCardz",      "url": "https://adventurecardz.de",        "priority": False},
+    {"name": "BreakTheCase",        "url": "https://www.breakthecase.de",      "priority": False},
+    {"name": "Playingcards.de",     "url": "https://playingcards.de",          "priority": False},  # Feed unbestaetigt
+
+    # --- Schweiz (Original – Versand nach Basel, kein Zoll) ---
     {"name": "The Uncommon Shop (CH)", "url": "https://theuncommonshop.ch",    "priority": False},
     {"name": "Pikaversum (CH)",     "url": "https://pikaversum.ch",            "priority": False},
     {"name": "tcg-paradies (CH)",   "url": "https://tcg-paradies.ch",          "priority": False},
     {"name": "CardCollectors (CH)", "url": "https://cardcollectors.ch",        "priority": False},
     {"name": "Good Games Bern (CH)","url": "https://www.goodgamesbern.ch",     "priority": False},
+
+    # --- Schweiz (NEU – Shopify-Feed bestaetigt) ---
+    {"name": "PokeAlp (CH)",        "url": "https://pokealp.ch",               "priority": False},
+    {"name": "JapHunter (CH)",      "url": "https://japhunter.ch",             "priority": False},
+
+    # ======================================================================
+    #  OHNE Shopify-Feed  ->  NICHT automatisch ueberwachbar.
+    #  Diese Shops per changedetection.io auf ihrer One-Piece-Kategorie
+    #  beobachten (das Script wuerde sie nur als "ohne Feed" melden):
+    #    Kiradecks       https://kiradecks.de         (kein products.json / 404)
+    #    RoHeggs TCG     https://roheggs-tcg.de        (kein products.json / 404)
+    #    Trader Online   https://trader-online.de      (OXID eShop, kein Feed)
+    #    Man of Games    https://www.man-of-games.de   (kein products.json / 404)
+    #    Zuris-Shop      https://www.zuris-shop.de     (kein Feed erkannt)
+    #  (Aus der Original-Liste haben auch Card-Corner (JTL) und DunPop
+    #   (PrestaShop) keinen Feed.)
+    # ======================================================================
 ]
 
-# Nur Produkte melden, deren Titel eines dieser Woerter enthaelt (klein geschrieben).
-# Leere Liste []  = ALLES melden. Fuer nur One Piece so lassen:
+# ==========================================================================
+#  FILTER
+# ==========================================================================
+# 1) Grundfilter: Titel muss eines dieser Woerter enthalten (klein geschrieben).
+#    Leere Liste []  = kein Grundfilter.
 KEYWORDS = ["one piece"]
 
-# Optional zusaetzlich nach Set-Codes filtern? Dann z. B.:
-# KEYWORDS = ["one piece", "op-", "eb-", "prb", "st-", "dp-"]
+# 2) ZUSAETZLICH muss mindestens eines dieser Woerter vorkommen
+#    (echte Kartenprodukte). Leere Liste []  = diese Pruefung aus.
+MUST_INCLUDE = ["display", "booster", "box", "case", "starter", "deck",
+                "op-", "op0", "op1", "eb-", "eb0", "prb", "st-",
+                "double pack", "premium", "collection",
+                "illustration", "ib-", "ib0",   # Illustration Boxes
+                "peb", "peb-"]                    # PEB-Set
+
+# 3) Wenn eines dieser Woerter vorkommt -> RAUS (Merch/Zubehoer).
+EXCLUDE = ["sleeve", "sleeves", "playmat", "play mat", "huelle", "huellen",
+           "figur", "figure", "funko", "plush", "pluesch", "toy", "spielzeug",
+           "shirt", "hoodie", "mug", "tasse", "poster", "pin", "keychain",
+           "schluessel", "storage", "binder", "album", "deck box", "deckbox",
+           "mousepad", "backpack", "tasche"]
 
 STATE_FILE = os.environ.get("STATE_FILE", "seen.json")
 USER_AGENT = "Mozilla/5.0 (compatible; OP-Monitor/1.0)"
@@ -110,10 +157,15 @@ def fetch_shopify_products(base_url):
 
 
 def product_matches(title):
-    if not KEYWORDS:
-        return True
+    """True nur fuer echte Kartenprodukte (Merch wird ausgefiltert)."""
     t = (title or "").lower()
-    return any(k in t for k in KEYWORDS)
+    if KEYWORDS and not any(k in t for k in KEYWORDS):
+        return False
+    if any(x in t for x in EXCLUDE):
+        return False
+    if MUST_INCLUDE and not any(m in t for m in MUST_INCLUDE):
+        return False
+    return True
 
 
 def extract_product_info(base_url, p):
