@@ -88,26 +88,41 @@ SHOPS = [
 ]
 
 # ==========================================================================
-#  FILTER
+#  FILTER  (mehrere Spiele als Kategorien)
 # ==========================================================================
-# 1) Grundfilter: Titel muss eines dieser Woerter enthalten (klein geschrieben).
-#    Leere Liste []  = kein Grundfilter.
-KEYWORDS = ["one piece"]
+# Merch/Zubehoer -> gilt fuer ALLE Kategorien (fliegt immer raus).
+EXCLUDE_SHARED = ["sleeve", "sleeves", "playmat", "play mat", "huelle", "huellen",
+                  "figur", "figure", "funko", "plush", "pluesch", "toy", "spielzeug",
+                  "shirt", "hoodie", "mug", "tasse", "poster", "pin", "keychain",
+                  "schluessel", "storage", "binder", "album", "deck box", "deckbox",
+                  "mousepad", "backpack", "tasche"]
 
-# 2) ZUSAETZLICH muss mindestens eines dieser Woerter vorkommen
-#    (echte Kartenprodukte). Leere Liste []  = diese Pruefung aus.
-MUST_INCLUDE = ["display", "booster", "box", "case", "starter", "deck",
-                "op-", "op0", "op1", "eb-", "eb0", "prb", "st-",
-                "double pack", "premium", "collection",
-                "illustration", "ib-", "ib0",   # Illustration Boxes
-                "peb", "peb-"]                    # PEB-Set
-
-# 3) Wenn eines dieser Woerter vorkommt -> RAUS (Merch/Zubehoer).
-EXCLUDE = ["sleeve", "sleeves", "playmat", "play mat", "huelle", "huellen",
-           "figur", "figure", "funko", "plush", "pluesch", "toy", "spielzeug",
-           "shirt", "hoodie", "mug", "tasse", "poster", "pin", "keychain",
-           "schluessel", "storage", "binder", "album", "deck box", "deckbox",
-           "mousepad", "backpack", "tasche"]
+# Pro Kategorie:
+#   any     = Titel MUSS eines dieser Woerter enthalten (Grundfilter).
+#   must    = Titel muss ZUSAETZLICH eines dieser Woerter enthalten
+#             (echte Kartenprodukte). Leere Liste []  = diese Pruefung aus.
+#   exclude = zusaetzliche Verbots-Woerter nur fuer diese Kategorie.
+CATEGORIES = {
+    "One Piece": {
+        "any": ["one piece"],
+        "must": ["display", "booster", "box", "case", "starter", "deck",
+                 "op-", "op0", "op1", "eb-", "eb0", "prb", "st-",
+                 "double pack", "premium", "collection",
+                 "illustration", "ib-", "ib0",   # Illustration Boxes
+                 "peb", "peb-"],                  # PEB-Set
+        "exclude": [],
+    },
+    # Neues offizielles Naruto Card Game von Bandai (Global-Release 2027).
+    # Bewusst breiter, weil die Haendler es unterschiedlich benennen werden.
+    "Naruto": {
+        "any": ["naruto"],
+        "must": ["card game", "tcg", "ccg", "bandai",
+                 "display", "booster", "box", "case", "starter", "deck",
+                 "set 01", "set01", "set 1", "nr-", "nb-"],
+        # raus: Kayou-Sammelkarten, Panini-Sticker, altes Weiss-Schwarz-Naruto
+        "exclude": ["kayou", "panini", "weiss", "weiß", "cardfun", "card fun"],
+    },
+}
 
 STATE_FILE = os.environ.get("STATE_FILE", "seen.json")
 USER_AGENT = "Mozilla/5.0 (compatible; OP-Monitor/1.0)"
@@ -156,16 +171,22 @@ def fetch_shopify_products(base_url):
     return products
 
 
-def product_matches(title):
-    """True nur fuer echte Kartenprodukte (Merch wird ausgefiltert)."""
+def match_category(title):
+    """Gibt den Kategorienamen zurueck (z.B. 'One Piece' / 'Naruto') oder None.
+    Merch wird ausgefiltert, ebenso Produkte, die nicht wie Karten aussehen."""
     t = (title or "").lower()
-    if KEYWORDS and not any(k in t for k in KEYWORDS):
-        return False
-    if any(x in t for x in EXCLUDE):
-        return False
-    if MUST_INCLUDE and not any(m in t for m in MUST_INCLUDE):
-        return False
-    return True
+    if any(x in t for x in EXCLUDE_SHARED):
+        return None
+    for cat, r in CATEGORIES.items():
+        if r["any"] and not any(k in t for k in r["any"]):
+            continue
+        if any(x in t for x in r.get("exclude", [])):
+            continue
+        must = r.get("must", [])
+        if must and not any(m in t for m in must):
+            continue
+        return cat
+    return None
 
 
 def extract_product_info(base_url, p):
@@ -285,7 +306,7 @@ def main():
     # Prioritaets-Shops zuerst
     shops = sorted(SHOPS, key=lambda s: not s.get("priority"))
 
-    new_items = []     # (priority, shop_name, title, price, url)
+    new_items = []     # (priority, shop_name, category, title, price, url)
     new_posts = []     # (shop_name, title, url)
     feed_ok, no_feed = [], []
 
@@ -301,8 +322,10 @@ def main():
             feed_ok.append(name)
             current = {}
             for p in products:
-                if product_matches(p.get("title", "")):
+                cat = match_category(p.get("title", ""))
+                if cat:
                     info = extract_product_info(base, p)
+                    info["cat"] = cat
                     current[info["id"]] = info
             known = set(state["products"].get(name, []))
             if name not in state["products"]:
@@ -311,7 +334,8 @@ def main():
             else:
                 for pid, info in current.items():
                     if pid not in known:
-                        new_items.append((prio, name, info["title"], info["price"], info["url"]))
+                        new_items.append((prio, name, info["cat"], info["title"],
+                                          info["price"], info["url"]))
                 state["products"][name] = list(current.keys())
 
         # ---- News/Events (Shopify-Blog) ----
@@ -334,7 +358,7 @@ def main():
 
     # ---- Erst-Lauf: nur Baseline-Bestaetigung, kein Spam ----
     if first_run:
-        msg = [" One Piece Monitor ist aktiv.",
+        msg = [" TCG-Monitor ist aktiv (One Piece + Naruto).",
                f"Baseline gespeichert fuer {len(feed_ok)} Shops mit Feed.",
                "Ab jetzt bekommst du nur noch NEUE Artikel/News gemeldet."]
         if no_feed:
@@ -356,14 +380,14 @@ def main():
         new_items.sort(key=lambda x: (not x[0], x[1]))
         lines.append(" NEUE Artikel / Vorbestellungen:")
         last_shop = None
-        for prio, shop_name, title, price, url in new_items:
+        for prio, shop_name, cat, title, price, url in new_items:
             header = shop_name + ("   [PRIO]" if prio else "")
             if shop_name != last_shop:
                 lines.append("")
                 lines.append(header)
                 last_shop = shop_name
             price_str = f" – {price} EUR" if price else ""
-            lines.append(f" • {title}{price_str}\n   {url}")
+            lines.append(f" • [{cat}] {title}{price_str}\n   {url}")
 
     if new_posts:
         lines.append("")
