@@ -1,6 +1,8 @@
 {
  "products": {
   "Card Collector (Alzey)": [
+   "16599686021388",
+   "16599685267724",
    "16592229073164",
    "16587280285964",
    "16587279401228",
@@ -334,6 +336,9 @@
    "15981252837758"
   ],
   "Cardlantis": [
+   "16174195966334",
+   "16174193869182",
+   "15733293515134",
    "16126620402046",
    "16011413651838",
    "15914185261438",
@@ -1516,6 +1521,7 @@
  "posts": {
   "Card Collector (Alzey)": [],
   "Feenturm": [
+   "https://feenturm.de/blogs/news/%F0%9F%92%9A-der-feenturm-wachst-und-manchmal-brauchen-auch-feen-ein-bisschen-mehr-zeit-%E2%9C%A8",
    "https://feenturm.de/blogs/news/%F0%9F%8F%B0-disney-lorcana-die-stadt-hyperia-der-nachschub-rollt-weiter-%F0%9F%92%9A%E2%9C%A8",
    "https://feenturm.de/blogs/news/%F0%9F%8C%88-riftbound-radiance-der-nachschub-fliesst-aber-die-verteilung-bleibt-ein-abenteuer-%F0%9F%92%9A%E2%9C%A8",
    "https://feenturm.de/blogs/news/%F0%9F%92%9A-mehr-durchblick-weniger-fragezeichen-unsere-neuen-feenturm-infoseiten-sind-da-%E2%80%8D-%EF%B8%8F%E2%9C%A8",
@@ -1544,8 +1550,7 @@
    "https://feenturm.de/blogs/news/es-raschelt-im-marchenwald-und-diesmal-sind-es-keine-feen-sondern-magnificent-monsters-%F0%9F%90%89%E2%9C%A8",
    "https://feenturm.de/blogs/news/update-zur-magic-the-gathering-star-trek-beginner-box",
    "https://feenturm.de/blogs/news/lorcana-update-nachschub-aus-dem-tintenmeer-%E2%9C%A8",
-   "https://feenturm.de/blogs/news/mehr-helfende-hande-und-ein-neues-magisches-ticketsystem-%E2%9C%A8",
-   "https://feenturm.de/blogs/news/one-piece-versandupdate-die-nachste-welle-ist-unterwegs-%F0%9F%8F%B4%E2%80%8D%E2%98%A0%EF%B8%8F%E2%9C%A8"
+   "https://feenturm.de/blogs/news/mehr-helfende-hande-und-ein-neues-magisches-ticketsystem-%E2%9C%A8"
   ],
   "GeeksHeaven": [
    "https://geeksheaven.de/blogs/news/starcraft-tabletop-miniatures-game-so-wird-gespielt",
