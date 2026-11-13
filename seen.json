@@ -1,7 +1,6 @@
 {
  "products": {
   "Card Collector (Alzey)": [
-   "11840747700492",
    "16599686021388",
    "16599685267724",
    "16592229073164",
@@ -351,7 +350,6 @@
    "15483293499774",
    "15483293467006",
    "15411775373694",
-   "16134033310078",
    "14904987910526",
    "9567983173926",
    "16126676926846",
@@ -1409,6 +1407,9 @@
  "posts": {
   "Card Collector (Alzey)": [],
   "Feenturm": [
+   "https://feenturm.de/blogs/news/%F0%9F%8C%88-riftbound-radiance-die-erste-grosse-welle-ist-durch-der-nachste-nachschub-steht-bereit-%F0%9F%92%9A%E2%9C%A8",
+   "https://feenturm.de/blogs/news/%F0%9F%8C%86%F0%9F%92%9A-cyberpunk-night-city-die-erste-grosse-versandwelle-ist-geschafft-nachschub-rollt-an-%F0%9F%93%A6%E2%9C%A8",
+   "https://feenturm.de/blogs/news/%E2%80%8D-%EF%B8%8F%F0%9F%92%9A-magic-the-gathering-endlich-kommt-bewegung-rein-grosse-lieferupdates-zu-star-trek-zersplitterte-realitat-grundstein-%E2%9C%A8",
    "https://feenturm.de/blogs/news/%F0%9F%92%9A%E2%9C%A8-pokemon-im-feenturm-der-nachschub-rollt-an-und-nachste-woche-wird-s-richtig-magisch-%F0%9F%8F%B0%E2%9A%A1",
    "https://feenturm.de/blogs/news/%F0%9F%8F%B0-disney-lorcana-versandupdate-zu-hyperia-co-neuer-dunkeltinte-drop-morgen-um-18-uhr-%F0%9F%92%9A%E2%9C%A8",
    "https://feenturm.de/blogs/news/%F0%9F%92%9A-wenn-eure-nachricht-im-feenturm-verloren-gegangen-ist",
@@ -1435,10 +1436,7 @@
    "https://feenturm.de/blogs/news/grosse-pokemon-nachlieferung-im-feenturm-jede-menge-ware-eingetroffen-und-bereits-im-versand-%F0%9F%93%A6%E2%9C%A8",
    "https://feenturm.de/blogs/news/%E2%9C%A8-disney-lorcana-hyperia-ist-am-horizont-pre-release-zuteilungen-und-ein-blick-voraus",
    "https://feenturm.de/blogs/news/der-feenturm-sucht-verstarkung-werde-teil-unseres-teams",
-   "https://feenturm.de/blogs/news/%F0%9F%8F%B4%E2%80%8D%E2%98%A0%EF%B8%8F-one-piece-versandupdate-diese-woche-wird-s-voll-im-feenturm",
-   "https://feenturm.de/blogs/news/%E2%80%8D-%EF%B8%8F%E2%9C%A8-magic-foundations-commander-decks-die-englischen-decks-sind-da",
-   "https://feenturm.de/blogs/news/%E2%80%8D-%EF%B8%8F-magic-the-gathering-allgemeines-versandupdate",
-   "https://feenturm.de/blogs/news/%F0%9F%90%89-dragon-ball-lebt-grossere-nachlieferung-im-anflug"
+   "https://feenturm.de/blogs/news/%F0%9F%8F%B4%E2%80%8D%E2%98%A0%EF%B8%8F-one-piece-versandupdate-diese-woche-wird-s-voll-im-feenturm"
   ],
   "GeeksHeaven": [
    "https://geeksheaven.de/blogs/news/starcraft-tabletop-miniatures-game-so-wird-gespielt",
