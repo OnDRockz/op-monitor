@@ -1,6 +1,7 @@
 {
  "products": {
   "Card Collector (Alzey)": [
+   "11840747700492",
    "16599686021388",
    "16599685267724",
    "16592229073164",
@@ -479,6 +480,8 @@
    "10949053776210"
   ],
   "FantasiaCards": [
+   "12407730831700",
+   "15055680897364",
    "15980814860628",
    "15813631082836",
    "15952289595732",
@@ -580,7 +583,6 @@
    "11898330087764"
   ],
   "CardBuddys": [
-   "15822951416139",
    "15838179393867",
    "15838179459403",
    "15876774560075",
@@ -1519,6 +1521,7 @@
   ],
   "TCGViert": [],
   "Card Cosmos": [
+   "https://cardcosmos.de/blogs/news/mtg-commander-decks-kaufen-kaufberatung",
    "https://cardcosmos.de/blogs/news/japanische-pok-mon-booster-werden-2027-teurer-das-aendert-sich-ab-mai",
    "https://cardcosmos.de/blogs/news/pokemon-aura-seeker-alle-infos-zum-neuen-set-mit-mega-lucario-z-ex",
    "https://cardcosmos.de/blogs/news/mtg-marvel-darkhold-destiny-alle-infos-zum-neuen-magic-set",
@@ -1547,8 +1550,7 @@
    "https://cardcosmos.de/blogs/news/riftbound-unleashed-alle-infos-zu-set-3-des-league-of-legends-tcgs",
    "https://cardcosmos.de/blogs/news/pokemon-ninja-spinner-m4-neues-set-mit-mega-greninja-ex-im-fokus",
    "https://cardcosmos.de/blogs/news/pokemon-mega-entwicklung-wachsendes-chaos-chaos-rising-infos",
-   "https://cardcosmos.de/blogs/news/wo-kann-man-disney-lorcana-karten-am-besten-kaufen",
-   "https://cardcosmos.de/blogs/news/wo-kann-man-one-piece-karten-am-besten-kaufen"
+   "https://cardcosmos.de/blogs/news/wo-kann-man-disney-lorcana-karten-am-besten-kaufen"
   ],
   "New Era TCG": [],
   "AdventureCardz": [],
