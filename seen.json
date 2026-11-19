@@ -85,7 +85,6 @@
    "10954470949131",
    "8440313938187",
    "8440277139723",
-   "10940593176843",
    "10694653280523",
    "8440325341451",
    "10150358515979",
@@ -337,7 +336,6 @@
    "15981252837758"
   ],
   "Cardlantis": [
-   "16196611211646",
    "16011413651838",
    "15822850556286",
    "16194857697662",
@@ -1426,6 +1424,7 @@
  "posts": {
   "Card Collector (Alzey)": [],
   "Feenturm": [
+   "https://feenturm.de/blogs/news/%F0%9F%8F%B0-der-bund-der-magischen-dinge-offnet-seine-pforten-und-warum-fairness-manchmal-auch-geduld-bedeutet",
    "https://feenturm.de/blogs/news/%E2%9C%A8-im-feenturm-wird-es-voll-und-eine-freche-hexe-ist-im-anflug-%E2%80%8D-%EF%B8%8F%F0%9F%93%A6",
    "https://feenturm.de/blogs/news/%F0%9F%8C%8A%E2%9C%A8-magic-nauctis-das-versunkene-reich-erwacht-und-die-feen-gehen-neue-wege-%F0%9F%92%9A",
    "https://feenturm.de/blogs/news/%F0%9F%8F%B4%E2%80%8D%E2%98%A0%EF%B8%8F%F0%9F%92%9A-one-piece-volle-segel-voraus-grosse-nachlieferungen-und-neue-schatze-am-horizont-%E2%9C%A8",
@@ -1454,8 +1453,7 @@
    "https://feenturm.de/blogs/news/%E2%9C%A8-magic-the-gathering-marvel-darkhold-destiny-ist-ab-sofort-vorbestellbar-neue-magie-am-horizont-%E2%80%8D-%EF%B8%8F",
    "https://feenturm.de/blogs/news/%E2%9C%A8-disney-lorcana-die-erste-grosse-hyperia-lieferung-ist-da-und-unser-erstes-prerelease-event-steht-vor-der-tur-%F0%9F%8F%B0",
    "https://feenturm.de/blogs/news/%E2%9C%A8-riftbound-radiance-am-horizont-und-heute-um-18-uhr-startet-der-nachste-grosse-drop",
-   "https://feenturm.de/blogs/news/%F0%9F%90%89-dragon-ball-erwacht-der-vierte-zirkel-im-bund-der-magischen-dinge-startet",
-   "https://feenturm.de/blogs/news/yu-gi-oh-beyond-the-brave-die-erste-welle-ist-gelandet-%F0%9F%83%8F%E2%9C%A8"
+   "https://feenturm.de/blogs/news/%F0%9F%90%89-dragon-ball-erwacht-der-vierte-zirkel-im-bund-der-magischen-dinge-startet"
   ],
   "GeeksHeaven": [
    "https://geeksheaven.de/blogs/news/starcraft-tabletop-miniatures-game-so-wird-gespielt",
@@ -1530,6 +1528,10 @@
   ],
   "TCGViert": [],
   "Card Cosmos": [
+   "https://cardcosmos.de/blogs/news/riftbound-einstieg-womit-anfangen",
+   "https://cardcosmos.de/blogs/news/sammelkarten-aufbewahren-huellen-toploader-binder",
+   "https://cardcosmos.de/blogs/news/yu-gi-oh-einstieg-2026",
+   "https://cardcosmos.de/blogs/news/star-wars-unlimited-einstieg",
    "https://cardcosmos.de/blogs/news/mtg-commander-decks-kaufen-kaufberatung",
    "https://cardcosmos.de/blogs/news/japanische-pok-mon-booster-werden-2027-teurer-das-aendert-sich-ab-mai",
    "https://cardcosmos.de/blogs/news/pokemon-aura-seeker-alle-infos-zum-neuen-set-mit-mega-lucario-z-ex",
@@ -1555,11 +1557,7 @@
    "https://cardcosmos.de/blogs/news/cyberpunk-tcg-alles-zum-neuen-trading-card-game-aus-night-city",
    "https://cardcosmos.de/blogs/news/disney-lorcana-set-14-die-stadt-hyperia-alle-infos",
    "https://cardcosmos.de/blogs/news/riftbound-radiance-alles-was-bisher-uber-das-kommende-5-set-bekannt-ist",
-   "https://cardcosmos.de/blogs/news/riftbound-vendetta-alle-infos-zum-kommenden-set-4-des-lol-tcgs",
-   "https://cardcosmos.de/blogs/news/riftbound-unleashed-alle-infos-zu-set-3-des-league-of-legends-tcgs",
-   "https://cardcosmos.de/blogs/news/pokemon-ninja-spinner-m4-neues-set-mit-mega-greninja-ex-im-fokus",
-   "https://cardcosmos.de/blogs/news/pokemon-mega-entwicklung-wachsendes-chaos-chaos-rising-infos",
-   "https://cardcosmos.de/blogs/news/wo-kann-man-disney-lorcana-karten-am-besten-kaufen"
+   "https://cardcosmos.de/blogs/news/riftbound-vendetta-alle-infos-zum-kommenden-set-4-des-lol-tcgs"
   ],
   "New Era TCG": [],
   "AdventureCardz": [],
