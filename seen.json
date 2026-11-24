@@ -81,7 +81,6 @@
    "8182890266891",
    "10964905263371",
    "10955156062475",
-   "10955153309963",
    "10954470949131",
    "8440313938187",
    "8440277139723",
@@ -339,6 +338,9 @@
    "15981252837758"
   ],
   "Cardlantis": [
+   "16208251027838",
+   "15509371388286",
+   "15411775373694",
    "16202148315518",
    "16202148249982",
    "16202148184446",
@@ -581,7 +583,6 @@
    "8898782691668",
    "12470979363156",
    "12301151895892",
-   "8780369297748",
    "9759784698196",
    "12466529173844",
    "8660513685844",
@@ -666,6 +667,7 @@
    "10187681890570"
   ],
   "Card Cosmos": [
+   "11429916344663",
    "11373390987607",
    "11358673731927",
    "11358673862999",
@@ -846,6 +848,13 @@
    "8909667238216"
   ],
   "AdventureCardz": [
+   "11097580699915",
+   "11097580568843",
+   "11097580503307",
+   "11097580405003",
+   "11097578438923",
+   "11097578406155",
+   "11097578373387",
    "11097016074507",
    "11097013256459",
    "11091183173899",
@@ -1140,6 +1149,7 @@
    "6768424222909"
   ],
   "BreakTheCase": [
+   "16631036739852",
    "16628893221132",
    "16628893155596",
    "16625692705036",
@@ -1430,6 +1440,7 @@
  "posts": {
   "Card Collector (Alzey)": [],
   "Feenturm": [
+   "https://feenturm.de/blogs/news/%E2%80%8D-%EF%B8%8F-grisellas-schwarze-woche-die-jagd-beginnt",
    "https://feenturm.de/blogs/news/%F0%9F%8F%B0-neues-aus-dem-feenturm-volle-lager-fleissige-feen-und-jede-menge-nachschub",
    "https://feenturm.de/blogs/news/%F0%9F%8C%8A%E2%9C%A8-nauctis-das-versunkene-reich-ein-neues-magic-abenteuer-beginnt",
    "https://feenturm.de/blogs/news/%F0%9F%8F%B0-der-bund-der-magischen-dinge-offnet-seine-pforten-und-warum-fairness-manchmal-auch-geduld-bedeutet",
@@ -1458,8 +1469,7 @@
    "https://feenturm.de/blogs/news/%F0%9F%8F%B4%E2%80%8D%E2%98%A0%EF%B8%8F-one-piece-die-nachste-schatzladung-ist-da-und-endlich-auch-die-heroines-edition-%F0%9F%92%96%E2%9C%A8",
    "https://feenturm.de/blogs/news/%E2%80%8D-%EF%B8%8F%E2%9C%A8-magischer-nachschub-im-feenturm-zersplitterte-realitat-grundstein-commander-decks",
    "https://feenturm.de/blogs/news/%E2%9C%A8-ab-in-die-dunkeltinte-der-vorverkauf-startet-heute-um-12-uhr-%F0%9F%92%9C",
-   "https://feenturm.de/blogs/news/%E2%9C%A8-magic-the-gathering-marvel-darkhold-destiny-ist-ab-sofort-vorbestellbar-neue-magie-am-horizont-%E2%80%8D-%EF%B8%8F",
-   "https://feenturm.de/blogs/news/%E2%9C%A8-disney-lorcana-die-erste-grosse-hyperia-lieferung-ist-da-und-unser-erstes-prerelease-event-steht-vor-der-tur-%F0%9F%8F%B0"
+   "https://feenturm.de/blogs/news/%E2%9C%A8-magic-the-gathering-marvel-darkhold-destiny-ist-ab-sofort-vorbestellbar-neue-magie-am-horizont-%E2%80%8D-%EF%B8%8F"
   ],
   "GeeksHeaven": [
    "https://geeksheaven.de/blogs/news/starcraft-tabletop-miniatures-game-so-wird-gespielt",
