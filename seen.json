@@ -1,6 +1,7 @@
 {
  "products": {
   "Card Collector (Alzey)": [
+   "16096914112780",
    "16599686021388",
    "16599685267724",
    "16592229073164",
@@ -29,7 +30,6 @@
    "16097695531276",
    "11865470140684",
    "11865469911308",
-   "11865108414732",
    "11864208048396",
    "11859079889164",
    "11859079725324",
@@ -375,8 +375,7 @@
    "15895414669694",
    "16102656278910",
    "16102650839422",
-   "16102650806654",
-   "16096208912766"
+   "16102650806654"
   ],
   "Yonko TCG": [
    "10699386159432",
@@ -1437,6 +1436,7 @@
  "posts": {
   "Card Collector (Alzey)": [],
   "Feenturm": [
+   "https://feenturm.de/blogs/news/%F0%9F%8C%88-grisellas-schwarze-woche-kapitel-2-ein-kunterbuntes-zauberchaos",
    "https://feenturm.de/blogs/news/%E2%80%8D-%EF%B8%8F-grisellas-schwarze-woche-die-jagd-beginnt",
    "https://feenturm.de/blogs/news/%F0%9F%8F%B0-neues-aus-dem-feenturm-volle-lager-fleissige-feen-und-jede-menge-nachschub",
    "https://feenturm.de/blogs/news/%F0%9F%8C%8A%E2%9C%A8-nauctis-das-versunkene-reich-ein-neues-magic-abenteuer-beginnt",
@@ -1465,8 +1465,7 @@
    "https://feenturm.de/blogs/news/%F0%9F%90%89%E2%9C%A8-brightness-of-hope-das-neue-dragon-ball-fusion-world-set-ist-da",
    "https://feenturm.de/blogs/news/%F0%9F%8F%B4%E2%80%8D%E2%98%A0%EF%B8%8F-one-piece-die-nachste-schatzladung-ist-da-und-endlich-auch-die-heroines-edition-%F0%9F%92%96%E2%9C%A8",
    "https://feenturm.de/blogs/news/%E2%80%8D-%EF%B8%8F%E2%9C%A8-magischer-nachschub-im-feenturm-zersplitterte-realitat-grundstein-commander-decks",
-   "https://feenturm.de/blogs/news/%E2%9C%A8-ab-in-die-dunkeltinte-der-vorverkauf-startet-heute-um-12-uhr-%F0%9F%92%9C",
-   "https://feenturm.de/blogs/news/%E2%9C%A8-magic-the-gathering-marvel-darkhold-destiny-ist-ab-sofort-vorbestellbar-neue-magie-am-horizont-%E2%80%8D-%EF%B8%8F"
+   "https://feenturm.de/blogs/news/%E2%9C%A8-ab-in-die-dunkeltinte-der-vorverkauf-startet-heute-um-12-uhr-%F0%9F%92%9C"
   ],
   "GeeksHeaven": [
    "https://geeksheaven.de/blogs/news/starcraft-tabletop-miniatures-game-so-wird-gespielt",
